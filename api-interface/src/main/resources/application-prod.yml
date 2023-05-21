@@ -1,0 +1,19 @@
+server:
+  port: 8103
+  servlet:
+    context-path: /interface
+spring:
+  application:
+    name: api-interface
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+dubbo:
+  application:
+    name: api-interface
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848

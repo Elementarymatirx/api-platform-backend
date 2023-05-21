@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: api-third
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  # DataSource Config
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/api
+    username: root
+    password: 167767
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  # redis
+  redis:
+    port: 6379
+    host: localhost
+    database: 0
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    publisher-confirm-type: correlated #开启发送端确认
+    publisher-returns: true #开启发送端消息抵达队列的确认
+    template:
+      mandatory: true #只要抵达队列，以异步发送优先回调我们这个returnsConfirm
+server:
+  port: 8105
+  servlet:
+    context-path: /api/third
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+dubbo:
+  application:
+    name: api-third-party
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848
+#腾讯短信服务
+tencent:
+  secretId: AKIDPoDat3766AC1b1ED1c1HLKvSnwtdBVda #你的secretId
+  secretKey: rX5TfgU6WlphO6qU0YAf6NUTK1XtETaZ #你的secretKey
+  sdkAppId: 1400821020 #你的sdkAppId
+  signName: 四羰基铁酸二钠公众号 #你的signName
+  templateId: 1795729 #你的templateId
+#阿里云oss
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-guangzhou.aliyuncs.com
+      keyid: yourAccessKeyId
+      keysecret: yourSecret
+      bucketname: niumazlb

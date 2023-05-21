@@ -1,0 +1,31 @@
+server:
+  port: 8102
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: api-order
+          uri: lb://api-order
+          predicates:
+            - Path=/api/order/**
+        - id: api-third
+          uri: lb://api-third
+          predicates:
+            - Path=/api/third/**
+        - id: api-backend
+          uri: lb://api-backend
+          predicates:
+            - Path=/api/**
+dubbo:
+  application:
+    name: api-gateway
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848
