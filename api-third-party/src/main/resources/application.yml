@@ -49,11 +49,11 @@ dubbo:
     address: nacos://localhost:8848
 #腾讯短信服务
 tencent:
-  secretId: AKIDPoDat3766AC1b1ED1c1HLKvSnwtdBVda #你的secretId
-  secretKey: rX5TfgU6WlphO6qU0YAf6NUTK1XtETaZ #你的secretKey
-  sdkAppId: 1400821020 #你的sdkAppId
-  signName: 四羰基铁酸二钠公众号 #你的signName
-  templateId: 1795729 #你的templateId
+  secretId: xxx #你的secretId
+  secretKey: xxx #你的secretKey
+  sdkAppId: xxx #你的sdkAppId
+  signName: xxx #你的signName
+  templateId: xxx #你的templateId
 #阿里云oss
 aliyun:
   oss:
